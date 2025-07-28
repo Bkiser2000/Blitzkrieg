@@ -88,7 +88,7 @@ blitz --interpreter example.bk
 
 # Run your first program
 echo 'PRINT("Hello, Blitzkrieg!")' > hello.bk
-python shell.py hello.bk
+blitz hello.bk
 ```
 
 ### Your First Program
