@@ -10,7 +10,7 @@ A fast, optimized programming language with Python-inspired syntax, featuring bu
 
 ## 🚀 Why Blitzkrieg?
 
-Blitzkrieg combines the simplicity of Python with the performance of compiled languages. It features automatic optimizations that can make your code **5-50x faster** than traditional interpreted languages, all while maintaining clean, readable syntax.
+Blitzkrieg combines the simplicity of Python with the performance of compiled languages. It features automatic optimizations that hopefully after some time and work, will run more faster and effeciently than python while still keeping the same general syntax without the hassles of using something like CPython where its useful but also pointless, at least in my opinion. In my opinion, its redundant to convert Python to C when we could make Python itself run just as quick by having a language that doesnt rely solely on an interpreter or need it to convert to C or C++ for its optimization and speed. 
 
 ```blitz
 # Simple, clean syntax
