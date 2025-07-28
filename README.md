@@ -366,15 +366,6 @@ time python shell.py --interpreter program.bk    # Slow
 time python shell.py program.bk                  # Fast!
 ```
 
-## 📊 Benchmarks
-
-### Performance vs Python 3.9
-| Test | Python 3.9 | Blitzkrieg Interpreter | Blitzkrieg Optimized | Speedup |
-|------|-------------|------------------------|---------------------|---------|
-| Fibonacci(35) | 3.2s | 8.1s | 0.4s | **8x faster** |
-| Sum of squares (1M) | 0.8s | 2.1s | 0.1s | **8x faster** |
-| Recursive factorial | 1.5s | 3.2s | 0.2s | **7.5x faster** |
-
 ### Memory Usage
 - **Baseline**: ~2MB
 - **With JIT cache**: ~4MB
