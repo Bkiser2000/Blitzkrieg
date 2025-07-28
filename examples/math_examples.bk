@@ -1,0 +1,51 @@
+# Mathematical Examples in Blitzkrieg
+
+PRINT("=== Mathematical Examples ===")
+
+# Basic arithmetic
+VAR x = 12
+VAR y = 8
+
+PRINT("x = " + STR(x) + ", y = " + STR(y))
+PRINT("Addition: " + STR(x + y))
+PRINT("Subtraction: " + STR(x - y))
+PRINT("Multiplication: " + STR(x * y))
+PRINT("Division: " + STR(x / y))
+PRINT("Power: " + STR(x ^ 2))
+
+# Factorial function
+FUN factorial(n) -> IF n <= 1 THEN 1 ELSE n * factorial(n - 1)
+
+PRINT("")
+PRINT("=== Factorial Examples ===")
+FOR i = 1 TO 8 THEN
+    PRINT("factorial(" + STR(i) + ") = " + STR(factorial(i)))
+END
+
+# Fibonacci sequence
+FUN fibonacci(n) -> IF n <= 1 THEN n ELSE fibonacci(n-1) + fibonacci(n-2)
+
+PRINT("")
+PRINT("=== Fibonacci Sequence ===")
+FOR i = 0 TO 12 THEN
+    PRINT("fib(" + STR(i) + ") = " + STR(fibonacci(i)))
+END
+
+# Sum of series
+PRINT("")
+PRINT("=== Sum of Numbers ===")
+VAR total = 0
+FOR i = 1 TO 100 THEN
+    total = total + i
+END
+PRINT("Sum of 1 to 100: " + STR(total))
+
+# Powers of 2
+PRINT("")
+PRINT("=== Powers of 2 ===")
+FOR i = 0 TO 10 THEN
+    PRINT("2^" + STR(i) + " = " + STR(2 ^ i))
+END
+
+PRINT("")
+PRINT("Mathematical examples complete!")

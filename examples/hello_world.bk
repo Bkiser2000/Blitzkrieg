@@ -1,0 +1,33 @@
+# Hello World Example - Your First Blitzkrieg Program
+
+# Simple output
+PRINT("Hello, World!")
+PRINT("Welcome to Blitzkrieg Programming Language!")
+
+# Variables
+VAR name = "Alice"
+VAR age = 25
+
+PRINT("Hello, " + name + "!")
+PRINT("You are " + STR(age) + " years old.")
+
+# Simple math
+VAR a = 10
+VAR b = 5
+VAR sum = a + b
+
+PRINT("The sum of " + STR(a) + " and " + STR(b) + " is " + STR(sum))
+
+# A simple function
+FUN greet(person) -> "Hello, " + person + "! Welcome to Blitzkrieg!"
+
+PRINT(greet("Bob"))
+PRINT(greet("Charlie"))
+
+# A simple loop
+PRINT("Counting from 1 to 5:")
+FOR i = 1 TO 5 THEN
+    PRINT("Number: " + STR(i))
+END
+
+PRINT("That's your first Blitzkrieg program!")
