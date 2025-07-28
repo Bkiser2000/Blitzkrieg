@@ -1,10 +1,12 @@
 # Blitzkrieg Programming Language ⚡
 
+# Important Key Note: I'd recommend using interpreter only first to learn and familiarize yourself with Blitzkrieg first. Nodes and operators need to be added to compilation functions for full functionality of the compiliers (This will be updated on or before 07/29/2025). The example files given will compile without issue and there'll be another example file that you can use as a helpful reference to learn this completely new language. Contributions are always welcome, just keep the syntax of the language as simple as possible while improving performance and reliability. 
+
 A fast, optimized programming language with Python-inspired syntax, featuring built-in JIT compilation, bytecode optimization, and aggressive performance enhancements.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.6+](https://img.shields.io/badge/python-3.6+-blue.svg)](https://www.python.org/downloads/)
-[![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/yourusername/blitzkrieg/releases)
+[![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/Bkiser2000/Blitzkrieg/releases)
 
 ## 🚀 Why Blitzkrieg?
 
