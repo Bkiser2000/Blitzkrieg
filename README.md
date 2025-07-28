@@ -45,11 +45,46 @@ END
 ### Installation
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/blitzkrieg.git
+git clone https://github.com/Bkiser2000/Blitzkrieg.git
 cd blitzkrieg
 
 # Make executable
 chmod +x shell.py
+
+# For command-line simplicity, creating a global symlink for blitz after cloning the repo is my recomended approach!
+sudo ln -s /path/to/blitzkrieg/shell.py /usr/local/bin/blitz
+which blitz
+blitz --version
+Python direct commands will be addressed in pycommands.txt, when you read it you'll see why having the symlink is easier in command-line.
+
+# Symlinked commands
+# Run a Blitzkrieg file
+blitz example.bk
+
+# Interactive mode
+blitz -i
+blitz --interactive
+
+# Show version
+blitz -v
+blitz --version
+
+# Show help
+blitz -h
+blitz --help
+
+# Compile to bytecode (.bkc file)
+blitz -c example.bk
+blitz --compile example.bk
+
+# Run with optimizations (default behavior)
+blitz example.bk
+
+# Disable optimizations
+blitz --no-optimize example.bk
+
+# Force pure interpreter mode
+blitz --interpreter example.bk
 
 # Run your first program
 echo 'PRINT("Hello, Blitzkrieg!")' > hello.bk
@@ -74,7 +109,7 @@ PRINT("Sum of squares: " + STR(result))
 
 Run with:
 ```bash
-python shell.py hello.bk
+blitz hello.bk
 ```
 
 ## 🎯 Language Syntax
