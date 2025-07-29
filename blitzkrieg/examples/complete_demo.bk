@@ -1,0 +1,364 @@
+# Blitzkrieg Programming Language - Complete Demo
+# This file demonstrates all major features of the Blitzkrieg language
+
+# ============================================================================
+# 1. BASIC OUTPUT AND VARIABLES
+# ============================================================================
+
+PRINT("=== Welcome to Blitzkrieg Programming Language ===")
+PRINT("Demonstrating all language features...")
+PRINT("")
+
+# Variable declarations
+VAR name = "Blitzkrieg"
+VAR version = 1.0
+VAR year = 2024
+VAR is_fast = 1  # 1 = true, 0 = false
+
+PRINT("Language: " + name)
+PRINT("Version: " + STR(version))
+PRINT("Year: " + STR(year))
+
+# ============================================================================
+# 2. ARITHMETIC OPERATIONS
+# ============================================================================
+
+PRINT("")
+PRINT("=== Arithmetic Operations ===")
+
+VAR a = 10
+VAR b = 3
+
+PRINT("a = " + STR(a))
+PRINT("b = " + STR(b))
+PRINT("Addition: " + STR(a + b))
+PRINT("Subtraction: " + STR(a - b))
+PRINT("Multiplication: " + STR(a * b))
+PRINT("Division: " + STR(a / b))
+PRINT("Power: " + STR(a ^ b))
+
+# Complex expressions
+VAR complex_result = (a + b) * 2 - 5 / 2
+PRINT("Complex: (a + b) * 2 - 5 / 2 = " + STR(complex_result))
+
+# ============================================================================
+# 3. COMPARISON AND LOGICAL OPERATIONS
+# ============================================================================
+
+PRINT("")
+PRINT("=== Comparison and Logical Operations ===")
+
+VAR x = 5
+VAR y = 8
+
+PRINT("x = " + STR(x) + ", y = " + STR(y))
+PRINT("x == y: " + STR(x == y))
+PRINT("x != y: " + STR(x != y))
+PRINT("x < y: " + STR(x < y))
+PRINT("x > y: " + STR(x > y))
+PRINT("x <= y: " + STR(x <= y))
+PRINT("x >= y: " + STR(x >= y))
+
+# Logical operations
+VAR true_val = 1
+VAR false_val = 0
+
+PRINT("true AND false: " + STR(true_val AND false_val))
+PRINT("true OR false: " + STR(true_val OR false_val))
+PRINT("NOT true: " + STR(NOT true_val))
+
+# ============================================================================
+# 4. CONDITIONAL STATEMENTS
+# ============================================================================
+
+PRINT("")
+PRINT("=== Conditional Statements ===")
+
+VAR age = 25
+
+IF age < 13 THEN
+    PRINT("You are a child")
+ELIF age < 20 THEN
+    PRINT("You are a teenager")
+ELIF age < 60 THEN
+    PRINT("You are an adult")
+ELSE
+    PRINT("You are a senior")
+
+# Nested conditions
+VAR score = 85
+
+IF score >= 90 THEN
+    PRINT("Grade: A")
+ELIF score >= 80 THEN
+    IF score >= 85 THEN
+        PRINT("Grade: B+")
+    ELSE
+        PRINT("Grade: B")
+    
+ELIF score >= 70 THEN
+    PRINT("Grade: C")
+ELSE
+    PRINT("Grade: F")
+
+# ============================================================================
+# 5. LOOPS
+# ============================================================================
+
+PRINT("")
+PRINT("=== For Loops ===")
+
+# Basic for loop
+PRINT("Counting 1 to 5:")
+FOR i = 1 TO 5 THEN
+    PRINT("Count: " + STR(i))
+END
+
+# For loop with step
+PRINT("Even numbers 0 to 10:")
+FOR i = 0 TO 10 STEP 2 THEN
+    PRINT("Even: " + STR(i))
+END
+
+# Nested loops
+PRINT("Multiplication table (3x3):")
+FOR i = 1 TO 3 THEN
+    FOR j = 1 TO 3 THEN
+        PRINT(STR(i) + " x " + STR(j) + " = " + STR(i * j))
+    END
+END
+
+# While loop
+PRINT("")
+PRINT("=== While Loop ===")
+VAR counter = 1
+WHILE counter <= 3 THEN
+    PRINT("While loop iteration: " + STR(counter))
+    VAR counter = counter + 1
+END
+
+# ============================================================================
+# 6. FUNCTIONS
+# ============================================================================
+
+PRINT("")
+PRINT("=== Functions ===")
+
+# Simple function
+FUN greet(person) -> "Hello, " + person + "!"
+
+PRINT(greet("Alice"))
+PRINT(greet("Bob"))
+
+# Function with multiple parameters
+FUN add_three(a, b, c) -> a + b + c
+
+VAR sum_result = add_three(1, 2, 3)
+PRINT("Sum of 1, 2, 3: " + STR(sum_result))
+
+# Recursive function
+FUN factorial(n) -> IF n <= 1 THEN 1 ELSE n * factorial(n - 1)
+
+PRINT("Factorial of 5: " + STR(factorial(5)))
+PRINT("Factorial of 6: " + STR(factorial(6)))
+
+# Fibonacci function
+FUN fibonacci(n) -> IF n <= 1 THEN n ELSE fibonacci(n-1) + fibonacci(n-2)
+
+PRINT("Fibonacci sequence (first 10 numbers):")
+FOR i = 0 TO 9 THEN
+    PRINT("fib(" + STR(i) + ") = " + STR(fibonacci(i)))
+END
+
+# Function with conditional logic
+FUN max_of_two(a, b) -> IF a > b THEN a ELSE b
+
+PRINT("Max of 15 and 23: " + STR(max_of_two(15, 23)))
+
+# ============================================================================
+# 7. LISTS AND DATA STRUCTURES
+# ============================================================================
+
+PRINT("")
+PRINT("=== Lists ===")
+
+# Creating lists
+VAR numbers = [1, 2, 3, 4, 5]
+VAR mixed_list = [10, "hello", 3.14, 42]
+
+PRINT("Numbers list: " + STR(numbers))
+PRINT("Mixed list: " + STR(mixed_list))
+
+# List operations
+PRINT("First number: " + STR(numbers[0]))
+PRINT("Last number: " + STR(numbers[4]))
+
+# List with expressions
+VAR calculated_list = [2 * 3, 4 + 1, 10 / 2]
+PRINT("Calculated list: " + STR(calculated_list))
+
+# ============================================================================
+# 8. STRING OPERATIONS
+# ============================================================================
+
+PRINT("")
+PRINT("=== String Operations ===")
+
+VAR first_name = "John"
+VAR last_name = "Doe"
+VAR full_name = first_name + " " + last_name
+
+PRINT("First name: " + first_name)
+PRINT("Last name: " + last_name)
+PRINT("Full name: " + full_name)
+
+# String with numbers
+VAR message = "The answer is " + STR(42)
+PRINT(message)
+
+# ============================================================================
+# 9. MATHEMATICAL ALGORITHMS
+# ============================================================================
+
+PRINT("")
+PRINT("=== Mathematical Algorithms ===")
+
+# Using expression-style function for sum of squares
+FUN sum_of_squares_expr(n) -> IF n <= 0 THEN 0 ELSE n*n + sum_of_squares_expr(n-1)
+
+PRINT("Sum of squares 1-5: " + STR(sum_of_squares_expr(5)))
+
+# Simplified prime checker
+FUN is_prime_simple(n) -> IF n <= 1 THEN 0 ELSE IF n == 2 THEN 1 ELSE IF n % 2 == 0 THEN 0 ELSE 1
+
+PRINT("Prime numbers up to 20:")
+FOR num = 2 TO 20 THEN
+    IF is_prime_simple(num) THEN
+        PRINT(STR(num) + " is prime")
+    END
+END
+
+# ============================================================================
+# 10. PRACTICAL EXAMPLES
+# ============================================================================
+
+PRINT("")
+PRINT("=== Practical Examples ===")
+
+# Temperature converter
+FUN celsius_to_fahrenheit(celsius) -> (celsius * 9 / 5) + 32
+FUN fahrenheit_to_celsius(fahrenheit) -> (fahrenheit - 32) * 5 / 9
+
+VAR temp_c = 25
+VAR temp_f = celsius_to_fahrenheit(temp_c)
+PRINT(STR(temp_c) + "°C = " + STR(temp_f) + "°F")
+
+VAR temp_f2 = 77
+VAR temp_c2 = fahrenheit_to_celsius(temp_f2)
+PRINT(STR(temp_f2) + "°F = " + STR(temp_c2) + "°C")
+
+# Using conditional expressions for calculator
+FUN calc_simple(a, op, b) -> IF op == "+" THEN a + b ELSE IF op == "-" THEN a - b ELSE IF op == "*" THEN a * b ELSE a / b
+
+PRINT("Calculator examples:")
+PRINT("10 + 5 = " + STR(calc_simple(10, "+", 5)))
+PRINT("10 - 3 = " + STR(calc_simple(10, "-", 3)))
+PRINT("4 * 7 = " + STR(calc_simple(4, "*", 7)))
+PRINT("15 / 3 = " + STR(calc_simple(15, "/", 3)))
+
+# ============================================================================
+# 11. PERFORMANCE DEMONSTRATION
+# ============================================================================
+
+PRINT("")
+PRINT("=== Performance Examples ===")
+
+# Loop performance test
+PRINT("Computing sum of 1 to 1000...")
+VAR large_sum = 0
+FOR i = 1 TO 1000 THEN
+    large_sum = large_sum + i
+END
+PRINT("Sum of 1 to 1000: " + STR(large_sum))
+
+# Recursive performance test
+FUN countdown(n) -> IF n <= 0 THEN 0 ELSE n + countdown(n - 1)
+
+PRINT("Countdown sum from 50: " + STR(countdown(50)))
+
+# ============================================================================
+# 12. OPTIMIZATION EXAMPLES
+# ============================================================================
+
+PRINT("")
+PRINT("=== Optimization Examples ===")
+
+# These will be optimized by constant folding
+VAR optimized_calc = 5 + 3 * 2 - 1  # Will be computed at compile time
+PRINT("Optimized calculation: " + STR(optimized_calc))
+
+# Small loop (will be unrolled)
+PRINT("Small loop (optimized by unrolling):")
+FOR i = 0 TO 3 THEN
+    PRINT("Unrolled: " + STR(i))
+END
+
+# Function inlining example
+FUN small_func(x) -> x * 2 + 1
+
+VAR inlined_result = small_func(5)  # This call may be inlined
+PRINT("Inlined function result: " + STR(inlined_result))
+
+# ============================================================================
+# 13. FINAL DEMONSTRATION
+# ============================================================================
+
+PRINT("")
+PRINT("=== Final Demo: Complex Algorithm ===")
+
+# Implement a simple sorting algorithm visualization
+VAR data = [64, 34, 25, 12, 22, 11, 90]
+PRINT("Original data: " + STR(data))
+
+# Note: This is a conceptual example - actual implementation may vary
+PRINT("Demonstrating algorithmic thinking...")
+
+FUN find_max(list_size) -> {
+    VAR max_val = 0
+    FOR i = 1 TO list_size THEN
+        IF i > max_val THEN
+            max_val = i
+        END
+    END
+    RETURN max_val
+}
+
+# Using expression-style function
+FUN find_max_simple(list_size) -> IF list_size <= 0 THEN 0 ELSE list_size
+
+PRINT("Finding maximum of first 7 numbers: " + STR(find_max_simple(7)))
+
+# ============================================================================
+# END OF DEMONSTRATION
+# ============================================================================
+
+PRINT("")
+PRINT("=== End of Blitzkrieg Language Demo ===")
+PRINT("Features demonstrated:")
+PRINT("✓ Variables and data types")
+PRINT("✓ Arithmetic and logical operations")
+PRINT("✓ Conditional statements")
+PRINT("✓ Loops (for and while)")
+PRINT("✓ Functions (simple and recursive)")
+PRINT("✓ Lists and data structures")
+PRINT("✓ String operations")
+PRINT("✓ Mathematical algorithms")
+PRINT("✓ Performance optimizations")
+PRINT("")
+PRINT("To run this demo:")
+PRINT("  blitz complete_demo.bk          # Optimized mode")
+PRINT("  blitz --interpreter complete_demo.bk  # Interpreter mode")
+PRINT("  blitz --bytecode complete_demo.bk     # Show bytecode")
+PRINT("  blitz -c complete_demo.bk            # Compile to bytecode")
+PRINT("")
+PRINT("Happy coding with Blitzkrieg! ⚡")

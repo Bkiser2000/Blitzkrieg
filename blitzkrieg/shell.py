@@ -4,7 +4,7 @@ import sys
 import os
 import argparse
 from pathlib import Path
-from blitz import run, Number
+from blitz import run, run_interactive, Number
 
 def main():
     parser = argparse.ArgumentParser(description='Blitzkrieg Programming Language')
@@ -21,15 +21,19 @@ def main():
     if args.file:
         run_file(args.file, args)
     elif args.interactive:
-        run_interactive()
+        interactive_shell()
     else:
-        run_interactive()
+        interactive_shell()
 
 def run_file(filename, args):
     try:
         # Check file extension
-        if not filename.endswith('.bk'):
-            print(f"Error: Expected .bk file, got {filename}")
+        if filename.endswith('.bkc'):
+            # Execute compiled bytecode file
+            run_bytecode_file(filename, args)
+            return
+        elif not filename.endswith('.bk'):
+            print(f"Error: Expected .bk or .bkc file, got {filename}")
             sys.exit(1)
             
         # Check if file exists
@@ -48,21 +52,19 @@ def run_file(filename, args):
         
         # Determine execution mode
         if args.interpreter:
-            # Force pure interpreter mode
+            # Force pure interpreter mode (disable optimizations)
             optimize = False
-            force_interpreter = True
         else:
             # Use optimization flags
             optimize = not args.no_optimize  # Default to optimized
-            force_interpreter = False
             
-        result, error = run(filename, text, optimize=optimize, show_bytecode=args.bytecode, force_interpreter=force_interpreter)
+        result, error = run(filename, text, optimize=optimize, show_bytecode=args.bytecode)
         
         if error:
             print(error.as_string())
             sys.exit(1)
-        elif result and result != Number.null:
-            print(result)
+        # Don't print result for file execution - only for interactive mode
+        # Results are printed by PRINT statements within the program
             
     except KeyboardInterrupt:
         print("\nInterrupted")
@@ -73,7 +75,7 @@ def run_file(filename, args):
 
 def compile_to_bytecode(filename, text, args):
     """Compile .bk file to .bkc bytecode file"""
-    from blitz import Lexer, Parser, Compiler
+    from blitz import Lexer, Parser, OptimizedCompiler
     import pickle
     
     try:
@@ -92,7 +94,7 @@ def compile_to_bytecode(filename, text, args):
             return
         
         # Compile to bytecode
-        compiler = Compiler()
+        compiler = OptimizedCompiler()
         compiler.compile(ast.node)
         
         # Save bytecode to .bkc file
@@ -100,6 +102,7 @@ def compile_to_bytecode(filename, text, args):
         bytecode_data = {
             'instructions': compiler.instructions,
             'constants': compiler.constants,
+            'variables': compiler.variables,  # Save variable name to index mapping
             'version': '1.0.0'
         }
         
@@ -119,7 +122,33 @@ def compile_to_bytecode(filename, text, args):
     except Exception as e:
         print(f"Compilation error: {e}")
 
-def run_interactive():
+def run_bytecode_file(filename, args):
+    """Run a compiled .bkc bytecode file"""
+    from blitz import run_bytecode_file as run_bytecode
+    import time
+    
+    try:
+        print(f"Running bytecode file: {filename}")
+        start_time = time.time()
+        
+        result, error = run_bytecode(filename)
+        
+        end_time = time.time()
+        execution_time = end_time - start_time
+        print(f"Execution time: {execution_time:.4f} seconds")
+        
+        if error:
+            print(error.as_string())
+            sys.exit(1)
+            
+    except KeyboardInterrupt:
+        print("\nInterrupted")
+        sys.exit(1)
+    except Exception as e:
+        print(f"Internal error: {e}")
+        sys.exit(1)
+
+def interactive_shell():
     print("Blitz 1.0.0 Interactive Shell")
     print("Type 'exit' to quit")
     
@@ -132,7 +161,7 @@ def run_interactive():
             elif text.strip() == '':
                 continue
                 
-            result, error = run('<stdin>', text)
+            result, error = run_interactive(text)
             
             if error:
                 print(error.as_string())

@@ -1,0 +1,45 @@
+# Blitzkrieg Performance Benchmark
+
+PRINT("=== Blitzkrieg Performance Benchmark ===")
+
+# Arithmetic benchmark
+PRINT("Running arithmetic benchmark...")
+VAR sum = 0
+FOR i = 1 TO 10000 THEN
+    VAR sum = sum + i * 2
+END
+PRINT("Arithmetic result: " + STR(sum))
+
+# Recursive function benchmark
+PRINT("Running recursive benchmark...")
+FUN fibonacci_bench(n) -> IF n <= 1 THEN n ELSE fibonacci_bench(n-1) + fibonacci_bench(n-2)
+
+VAR fib_result = fibonacci_bench(25)
+PRINT("Fibonacci(25) = " + STR(fib_result))
+
+# Loop optimization benchmark
+PRINT("Running loop optimization test...")
+VAR total = 0
+FOR i = 1 TO 1000 THEN
+    FOR j = 1 TO 10 THEN
+        VAR total = total + (i + j)
+    END
+END
+PRINT("Nested loop result: " + STR(total))
+
+# Function call benchmark
+FUN simple_calc(a, b) -> a * b + a - b
+
+PRINT("Running function call benchmark...")
+VAR func_result = 0
+FOR i = 1 TO 1000 THEN
+    VAR func_result = func_result + simple_calc(i, 2)
+END
+PRINT("Function call result: " + STR(func_result))
+
+PRINT("")
+PRINT("Benchmark complete!")
+PRINT("Run with different modes to compare performance:")
+PRINT("  blitz --interpreter benchmark.bk")
+PRINT("  blitz benchmark.bk")
+PRINT("  blitz --bytecode benchmark.bk")

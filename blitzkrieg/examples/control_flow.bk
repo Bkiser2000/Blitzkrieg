@@ -1,0 +1,90 @@
+# Control Flow Examples in Blitzkrieg
+
+PRINT("=== Control Flow Examples ===")
+
+# If-elif-else chains
+VAR score = 85
+
+PRINT("Score: " + STR(score))
+IF score >= 90 THEN
+    PRINT("Grade: A (Excellent!)")
+ELIF score >= 80 THEN
+    PRINT("Grade: B (Good job!)")
+ELIF score >= 70 THEN
+    PRINT("Grade: C (Not bad)")
+ELIF score >= 60 THEN
+    PRINT("Grade: D (Needs improvement)")
+ELSE
+    PRINT("Grade: F (Study harder!)")
+
+# Nested conditions
+VAR weather = "sunny"
+VAR temperature = 75
+
+PRINT("")
+PRINT("Weather: " + weather + ", Temperature: " + STR(temperature) + "°F")
+
+IF weather == "sunny" THEN
+    IF temperature > 80 THEN
+        PRINT("Perfect day for swimming!")
+    ELIF temperature > 65 THEN
+        PRINT("Great day for a walk!")
+    ELSE
+        PRINT("A bit chilly but still sunny!")
+    
+ELIF weather == "rainy" THEN
+    PRINT("Stay inside and read a book!")
+ELSE
+    PRINT("Check the weather forecast!")
+
+# Multiple for loops
+PRINT("")
+PRINT("=== Loop Examples ===")
+
+# Simple counting
+PRINT("Counting up:")
+FOR i = 1 TO 5 THEN
+    PRINT("  " + STR(i))
+END
+
+# Counting with step
+PRINT("Counting by 3s:")
+FOR i = 3 TO 15 STEP 3 THEN
+    PRINT("  " + STR(i))
+END
+
+# Nested loops - multiplication table
+PRINT("")
+PRINT("=== Multiplication Table (3x3) ===")
+FOR i = 1 TO 3 THEN
+    FOR j = 1 TO 3 THEN
+        VAR product = i * j
+        PRINT(STR(i) + " × " + STR(j) + " = " + STR(product))
+    END
+    PRINT("---")
+END
+
+# While loop example
+PRINT("")
+PRINT("=== While Loop Example ===")
+VAR countdown = 5
+PRINT("Countdown:")
+WHILE countdown > 0 THEN
+    PRINT("  " + STR(countdown))
+    VAR countdown = countdown - 1
+END
+PRINT("  Blast off! 🚀")
+
+# Using expression-style function
+FUN classify_simple(n) -> IF n > 0 THEN IF n % 2 == 0 THEN "positive even" ELSE "positive odd" ELSE IF n < 0 THEN "negative" ELSE "zero"
+
+PRINT("")
+PRINT("=== Number Classification ===")
+VAR test_numbers = [-4, -3, 0, 3, 4]
+FOR i = 0 TO 4 THEN
+    VAR num = test_numbers[i]
+    PRINT(STR(num) + " is " + classify_simple(num))
+END
+
+PRINT("")
+PRINT("Control flow examples complete!")
