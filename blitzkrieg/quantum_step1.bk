@@ -1,0 +1,6 @@
+PRINT("Testing")
+PROF "test" THEN
+    VAR data = [1, 5, 10, 15, 20]
+    VAR found = QUANTUM_SEARCH(data, 15)
+    PRINT("Found at index: " + found)
+END

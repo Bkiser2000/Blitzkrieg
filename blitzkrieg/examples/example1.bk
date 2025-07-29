@@ -1,0 +1,12 @@
+VAR t = 2
+IF t > 1 THEN
+    PRINT("GREATER")
+PRINT("Hello, World!")|
+PRINT("This is a new line!")|
+PROF "test" THEN
+    PRINT("TESTING")
+END
+VAR name = "Brendan"|
+VAR age = 25
+IF age >= 18 THEN
+    PRINT("Hello + "name")|

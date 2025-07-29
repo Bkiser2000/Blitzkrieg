@@ -1,0 +1,4 @@
+PRINT("Testing")
+PROF "test" THEN
+    PRINT("Inside")
+END

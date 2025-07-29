@@ -1,0 +1,14 @@
+# Multiple assignment
+a, b, c = 1, 2, 3
+PRINT("Multiple: " + STR(a) + ", " + STR(b) + ", " + STR(c))
+
+# Augmented assignment
+x = 10
+x += 5
+x *= 2
+PRINT("Augmented: " + STR(x))
+
+# Python-style assignment (no VAR needed)
+name = "Blitzkrieg"
+version = 2.0
+PRINT("Language: " + name + " v" + STR(version))
